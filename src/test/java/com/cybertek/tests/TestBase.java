@@ -64,8 +64,15 @@ public class TestBase {
             String screenshotPath = BrowserUtils.getScreenshot(result.getName());
             extentLogger.addScreenCaptureFromPath(screenshotPath);
             //capture the exception
+            // getThrowable altta çıkan error raporunu alıyor ve benim raporuma ekliyor
             extentLogger.fail(result.getThrowable());
         }
+
+        else if(result.getStatus()==ITestResult.SKIP){
+            extentLogger.skip("Test Skipped: "+result.getName());
+        }
+
+
         //Close the driver
         Thread.sleep(1000);
         Driver.closeDriver();
