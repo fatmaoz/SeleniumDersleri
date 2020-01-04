@@ -54,8 +54,8 @@ public class TestBase {
         driver.get(ConfigurationReader.get("url"));
         driver.manage().window().maximize();
     }
-    //ITestResult class describes the result of a test in TestNg
-    @AfterMethod
+   // ITestResult class describes the result of a test in TestNg
+   @AfterMethod
     public void tearDownMethod(ITestResult result) throws InterruptedException, IOException {
         if(result.getStatus()==ITestResult.FAILURE){
             //record the name of the failed test case
